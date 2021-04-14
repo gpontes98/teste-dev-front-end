@@ -1,0 +1,112 @@
+nav{
+    display: flex;
+    z-index: 1000;
+}
+
+.menu{
+    display: flex;
+    align-items: flex-end;
+    list-style:none;
+    float:left;
+    }
+
+    .menu li{
+        position:relative;
+        padding: 10px 25px 0 0;
+    }
+
+        .menu li a{
+            color:var(--color-title);
+            text-decoration:none;
+            display:block;
+        }
+
+        .sub-menu,
+        .sub-sub-menu{
+            position:absolute;
+            width: 125px;
+            top:25px;
+            left:0;
+            display:none;
+            text-align: center;
+        }
+
+        .sub-menu li,
+        .sub-sub-menu li{
+            display:block;
+            width:100%;
+            padding: 5px 0 5px 0;
+            background-color:var(--dark-blue-theme);
+        }
+
+        .sub-menu li:first-child{
+            margin-top: 8px;
+        }
+
+        .sub-menu li a,
+        .sub-sub-menu li a{
+            color: #fff;
+            margin: 2px 0;
+        }
+
+        .menu li:hover .sub-menu,
+        .menu li.over .sub-menu{
+            display:block;
+        }
+
+        .sub-menu li:hover .sub-sub-menu,
+        .sub-menu li.over .sub-sub-menu{
+            display:block;
+            top: 0;
+            left: 100%;
+        }
+
+#btnMenu,
+label[for="btnMenu"]{
+    display: none;
+}
+
+@media (max-width:600px){
+
+    .containerLogoMenu{
+        flex-wrap: wrap;
+    }
+
+    .headerLogo{
+        width: 50%;
+    }
+
+    label[for="btnMenu"]{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        cursor: pointer;
+        padding-right: 10px;
+        width: 50%;
+    }
+    .menu{
+        opacity: 0;
+        margin-left: -90%;
+        margin-top: 85px;
+        position: absolute;
+        display: block;
+        width: 90px;
+        background-color:var(--dark-blue-theme);
+        transition: all 1s ease;
+    }
+
+    .menu li a{
+        color: #fff;
+    }
+
+    /* Exibindo o menu mobile */
+    #btnMenu:checked ~ .menu{
+        opacity: 1;
+    }
+
+    .sub-menu{
+        margin-left: 100%;
+        margin-top: -55px;
+    }
+
+}
